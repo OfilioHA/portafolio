@@ -1,5 +1,5 @@
-import { sequelize } from "./index";
-import { Model, DataTypes } from "sequelize";
+const { sequelize } = require("./sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 class Repository extends Model {}
 
@@ -13,4 +13,4 @@ Repository.init(
   }
 );
 
-export { Repository };
+module.exports =  { Repository };

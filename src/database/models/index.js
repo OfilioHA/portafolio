@@ -1,5 +1,5 @@
-import { Sequelize } from "sequelize";
-import ConfigJson from '../database.json';
+const { Repository } = require('./repository');
 
-const env = process.env.NODE_ENV || 'development';
-export const sequelize = new Sequelize(ConfigJson[env]);
+module.exports = {
+    Repository
+}
