@@ -3,17 +3,15 @@ const { PublicRepository } = require("./public-repository");
 
 PublicRepository.hasOne(Repository, {
   foreignKey: "visibilityId",
-  as: "visibility",
-  constraints: false,
-});
-
-Repository.belongsTo(PublicRepository, {
-  foreignKey: "visibilityId",
-  as: "visibility",
   constraints: false,
   scope: {
     visibilityType: "public",
   },
+});
+
+Repository.belongsTo(PublicRepository, {
+  foreignKey: "visibilityId",
+  constraints: false,
 });
 
 module.exports = {
