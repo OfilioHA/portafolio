@@ -1,5 +1,5 @@
 "use strict";
-const { Repository } = require("../models");
+const { Repository, PublicRepository } = require("../models");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -8,18 +8,24 @@ module.exports = {
     let repos = await response.json();
     await Promise.all(
       repos.map(async (repo) => {
-        await Repository.create({
+        const repository = await Repository.create({
           name: repo.name,
-          src: repo.html_url,
-          visibility: repo.visibility,
-          state: '',
-          origin: 'github'
+          origin: "github",
+          visibilityType: "public",
         });
+
+        const publicRepo = await PublicRepository.create({
+          srcUrl: repo.html_url,
+        });
+
+        repository.visibilityId = publicRepo.id;
+
+        await repository.save();
       })
     );
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Repositories', null, {});
+    await queryInterface.bulkDelete("Repositories", null, {});
   },
 };

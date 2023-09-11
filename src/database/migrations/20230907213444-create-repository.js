@@ -9,14 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      visibilityType: {
+        type: Sequelize.STRING,
+      },
+      visibilityId: {
+        type: Sequelize.INTEGER,
+      },
       name: {
         type: Sequelize.STRING,
       },
-      src_url: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-      deployment_url: {
+      deploymentUrl: {
         allowNull: true,
         type: Sequelize.STRING,
       },
@@ -24,14 +26,12 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING,
       },
-      state: {
-        type: Sequelize.STRING,
-      },
       origin: {
         type: Sequelize.STRING,
       },
-      visibility: {
-        type: Sequelize.STRING,
+      state: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
       },
       createdAt: {
         allowNull: false,

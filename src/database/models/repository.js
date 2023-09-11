@@ -5,13 +5,12 @@ class Repository extends Model {}
 
 Repository.init(
   {
+    visibilityId: DataTypes.INTEGER,
+    visibilityType: DataTypes.STRING,
     name: DataTypes.STRING,
-    src_url: DataTypes.STRING,
-    deployment_url: DataTypes.STRING,
     image: DataTypes.STRING,
-    state: DataTypes.STRING,
     origin: DataTypes.STRING,
-    visibility: DataTypes.STRING,
+    type: DataTypes.BOOLEAN,
   },
   {
     sequelize,
