@@ -10,7 +10,9 @@ Repository.init(
     name: DataTypes.STRING,
     image: DataTypes.STRING,
     origin: DataTypes.STRING,
-    type: DataTypes.BOOLEAN,
+    startedAt: DataTypes.DATE,
+    lastUpdatedAt: DataTypes.DATE,
+    state: DataTypes.BOOLEAN,
   },
   {
     sequelize,

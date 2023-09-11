@@ -12,6 +12,8 @@ module.exports = {
           name: repo.name,
           origin: "github",
           visibilityType: "public",
+          startedAt: repo.created_at,
+          lastUpdatedAt: repo.updated_at,
         });
 
         const publicRepo = await PublicRepository.create({
@@ -27,5 +29,6 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete("Repositories", null, {});
+    await queryInterface.bulkDelete("PublicRepositories", null, {});
   },
 };
