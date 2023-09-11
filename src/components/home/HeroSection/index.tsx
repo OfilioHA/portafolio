@@ -1,23 +1,38 @@
 "use client";
 import { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 
 export function HeroSection() {
   useEffect(() => {
-    fetch("https://api.github.com/users/OfilioHA/repos")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+
   }, []);
 
   return (
     <Container>
-      <Row>
-        <Col>
+      <Row className="justify-content-between">
+        <Col md={5}>
           <h1>Hello World</h1>
+          <hr />
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, suscipit libero officiis similique autem ad incidunt provident quae aperiam! Provident.</p>
         </Col>
-        <Col></Col>
+        <Col md={6}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            height: '100%',
+            gap: '1.25rem'
+          }}>
+            <Card style={{ gridRowStart: 1, gridRowEnd: 3 }}>
+              <Card.Body />
+            </Card>
+            <Card>
+              <Card.Body />
+            </Card>
+            <Card>
+              <Card.Body />
+            </Card>
+          </div>
+        </Col>
       </Row>
     </Container>
   );
