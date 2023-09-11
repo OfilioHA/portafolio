@@ -1,26 +1,25 @@
-'use strict';
-const { Repository } = require('../models'); 
+"use strict";
+const { Repository } = require("../models");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+  async up(queryInterface, Sequelize) {
+    const response = await fetch("https://api.github.com/users/OfilioHA/repos");
+    let repos = await response.json();
+    await Promise.all(
+      repos.map(async (repo) => {
+        await Repository.create({
+          name: repo.name,
+          src: repo.html_url,
+          visibility: repo.visibility,
+          state: '',
+          origin: 'github'
+        });
+      })
+    );
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Repositories', null, {});
+  },
 };
