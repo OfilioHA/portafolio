@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import { Card } from "react-bootstrap";
 
 export function RepositoryCard(props){
@@ -12,16 +11,18 @@ export function RepositoryCard(props){
         "private": "lock"
     }    
 
+    const icon = icons[props.visibilityType];
+
     return (
         <Card>
             <Card.Img src={image} variant="top" />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
             </Card.Body>
-            <Card.Footer className="bg-white">
+            <Card.Footer className="bg-white p-0">
                 <div className="d-flex">
-                    <div className="icon border-left">
-                        
+                    <div className="icon border-end px-3 py-2">
+                        <em className={`fas fa-${icon}`}></em>
                     </div>
                 </div>
             </Card.Footer>
