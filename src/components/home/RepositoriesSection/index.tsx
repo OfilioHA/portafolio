@@ -1,7 +1,7 @@
 "use client";
 import { Separator } from "@/components/utils/Separator";
 import { useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, ButtonGroup, Col, Container, Row } from "react-bootstrap";
 import { RepositoryCard } from "./RepositoryCard";
 
 export function RepositoriesSection({ repositories }) {
@@ -17,9 +17,13 @@ export function RepositoriesSection({ repositories }) {
         </Col>
         <Col md={6}>
           <div className="d-flex h-100 justify-content-end align-items-end">
-            <Button>Todos</Button>
-            <Button>Publicos</Button>
-            <Button>Privados</Button>
+            <div className="d-flex mb-3">
+              <ButtonGroup>
+                <Button>Todos</Button>
+                <Button>Publicos</Button>
+                <Button>Privados</Button>
+              </ButtonGroup>
+            </div>
           </div>
         </Col>
       </Row>
