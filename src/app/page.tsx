@@ -1,4 +1,3 @@
-import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { RepositoriesSection } from "@/components/home/RepositoriesSection";
 import { Repository, PublicRepository } from "@/database/models";
@@ -17,7 +16,6 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-      <FeaturesSection />
       <RepositoriesSection repositories={repositories} />
     </>
   )
