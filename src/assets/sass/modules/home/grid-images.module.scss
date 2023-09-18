@@ -1,0 +1,33 @@
+.heroGridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  gap: 1rem;
+
+  > .heroCardImage{
+  }
+
+  > .heroCardImage:nth-child(1){
+    border-top-left-radius: 11.25rem;
+  }
+
+  > .heroCardImage:nth-child(2){
+    border-bottom-left-radius: 11.25rem;
+  }
+
+  > .heroCardImage:nth-child(3){
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column: 2;
+    min-height: 500px;
+    border-top-right-radius: 120px;
+    overflow: hidden;
+
+    > div{
+      border-top-right-radius: 64px;
+    }
+  }
+
+}
+
+

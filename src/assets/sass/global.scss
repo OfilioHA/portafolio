@@ -1,2 +1,27 @@
-@import 'node_modules/normalize.css/normalize.css';
-@import './bootstrap.scss';
+@import "node_modules/normalize.css/normalize.css";
+@import "./bootstrap.scss";
+
+.gap-90{
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.separator {
+  column-gap: 13px;
+  > .separator-item {
+    background-color: rebeccapurple;
+    height: 0.65rem;
+
+    &:first-child {
+      width: 65.68%;
+    }
+
+    &:nth-child(2) {
+      width: 22.09%;
+    }
+
+    &:nth-child(3) {
+      width: 7.1%;
+    }
+  }
+}
