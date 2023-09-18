@@ -6,7 +6,7 @@ import { PresentationText } from "./PresentationText";
 export function HeroSection() {
 
   return (
-    <Container id="heroSection" className="gap-90" as='section'>
+    <Container id="heroSection" className="gap-90 g-0" as='section'>
       <Row className="justify-content-between">
         <Col md={5}>
           <PresentationText />
