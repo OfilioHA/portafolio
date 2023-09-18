@@ -1,0 +1,16 @@
+.featureCard {
+  flex-basis: 100%;
+  max-width: 130px;
+  padding: 13px;
+  border: 1px solid black;
+  border-radius: 12px;
+
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .value {
+    font-size: 16px;
+  }
+}
