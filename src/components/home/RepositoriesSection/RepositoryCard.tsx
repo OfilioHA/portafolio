@@ -17,7 +17,7 @@ export function RepositoryCard(props){
         <Card>
             <Card.Img src={image} variant="top" />
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title className='mb-0'>{name}</Card.Title>
             </Card.Body>
             <Card.Footer className="bg-white p-0">
                 <div className="d-flex">
