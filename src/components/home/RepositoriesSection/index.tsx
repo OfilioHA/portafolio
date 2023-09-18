@@ -1,6 +1,7 @@
 "use client";
+import styles from '@/assets/sass/modules/home/repository-container.module.scss';
 import { Separator } from "@/components/utils/Separator";
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, MouseEvent } from "react";
 import { Button, ButtonGroup, Col, Container, Row } from "react-bootstrap";
 import { RepositoryCard } from "./RepositoryCard";
 
@@ -8,12 +9,15 @@ export function RepositoriesSection({ repositories }) {
   const [repos, setRepos] = useState(repositories);
   const [filter, setFilter] = useState("all");
 
-  const handleClickButtonFilter = useCallback((event) => {
-    const {
-      target: { value },
-    } = event;
-    setFilter(value);
-  }, []);
+  const handleClickButtonFilter = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      const {
+        target: { value },
+      } = event;
+      setFilter(value);
+    },
+    []
+  );
 
   const reposFiletered = useMemo(() => {
     return repos.filter((repo) => {
@@ -23,10 +27,10 @@ export function RepositoriesSection({ repositories }) {
   }, [filter]);
 
   return (
-    <Container as="section" className="gap-90">
+    <Container as="section" className="gap-90 g-0">
       <Row className="mb-5">
         <Col md={6}>
-          <h2 className="mb-4">Conoce más sobre mi atraves de mis proyectos</h2>
+          <h2 className="mb-4">Conoce más sobre mi atraves de mis {repos.length} proyectos</h2>
           <Separator />
         </Col>
         <Col md={6}>
@@ -49,7 +53,7 @@ export function RepositoriesSection({ repositories }) {
       </Row>
       <Row>
         <Col sm={12}>
-          <div className="d-grid">
+          <div className={`d-grid ${styles.repositoryContainer}`}>
             {reposFiletered.map((repository, index) => (
               <RepositoryCard {...repository} key={index} />
             ))}
